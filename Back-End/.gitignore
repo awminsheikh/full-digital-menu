@@ -1,0 +1,46 @@
+# Node modules  
+node_modules/  
+
+# Logs  
+logs  
+*.log  
+npm-debug.log*  
+yarn-debug.log*  
+yarn-error.log*  
+
+# Environment variables  
+.env  
+.env.local  
+.env.*.local  
+
+# Build outputs  
+build/  
+dist/  
+
+# Dependency directories  
+jspm_packages/  
+bower_components/  
+
+# Testing  
+coverage/  
+*.lcov  
+
+# Misc  
+.DS_Store  
+Thumbs.db  
+.idea/  
+.vscode/  
+*.sublime-project  
+*.sublime-workspace  
+*~  
+
+# Exclude cache files  
+.cache/  
+
+# OS specific files  
+*.swp  
+*.swo  
+
+# Optional files  
+package-lock.json  
+yarn.lock
