@@ -1,0 +1,43 @@
+/* Items.css */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms, transform 300ms;
+  }
+  /* Additional styles for alignment and separator */
+.border-b {
+    border-bottom: 1px solid;
+  }
+  .w-px {
+    width: 1px;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .bg-yellow-400 {
+    background-color: #fbbf24; /* Example yellow color */
+  }
+
+  /* Dotted line style */
+.dot-line {
+    height: 1px; /* Width of the line */
+    width: 100%; /* Full height of the container */
+    background: radial-gradient(circle, transparent 50%, yellow 50%) repeat-y; /* Creates dotted effect */
+    background-size: 2px 2px; /* Adjusts the spacing between dots */
+  }
