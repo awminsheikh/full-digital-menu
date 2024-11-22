@@ -1,18 +1,20 @@
-const express = require('express');
-const author = require('../module/author');
-const router = express.Router();
-const Author = require('../module/author')
+const express = require('express');  
+const router = express.Router();  
+const categoryController = require('../controllers/categoryController');  
+const itemController = require('../controllers/itemController');  
 
-// All Authors Route
-router.get('/', (req, res) => {
-    res.render('authors/index');
-});
+// Category routes  
+router.get('/categories', categoryController.getAllCategories);  
+router.get('/categories/:id', categoryController.getCategoryById);  
+router.post('/categories', categoryController.createCategory);  
+router.put('/categories/:id', categoryController.updateCategory);  
+router.delete('/categories/:id', categoryController.deleteCategory);  
 
-
-
-
-
-
-
+// Item routes  
+router.get('/items', itemController.getAllItems);  
+router.get('/items/:id', itemController.getItemById);  
+router.post('/items', itemController.createItem);  
+router.put('/items/:id', itemController.updateItem);  
+router.delete('/items/:id', itemController.deleteItem);  
 
 module.exports = router;
