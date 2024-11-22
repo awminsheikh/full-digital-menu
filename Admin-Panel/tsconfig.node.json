@@ -1,0 +1,25 @@
+{  
+  "compilerOptions": {  
+    "incremental": true,  // Ensure this is added for tsBuildInfoFile usage  
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",  
+    "target": "ES2022",  // Keeping it to ES2022 for compatibility  
+    "lib": ["ES2022"],    // Change from ES2023 to ES2022  
+    "module": "ESNext",  
+    "skipLibCheck": true,  
+
+    /* Bundler mode */  
+    "moduleResolution": "Bundler",  
+    "allowImportingTsExtensions": true,  
+    "isolatedModules": true,  
+    "moduleDetection": "force",  
+    "noEmit": true,  
+
+    /* Linting */  
+    "strict": true,  
+    "noUnusedLocals": true,  
+    "noUnusedParameters": true,  
+    "noFallthroughCasesInSwitch": true  
+    // Removed "noUncheckedSideEffectImports"  
+  },  
+  "include": ["vite.config.ts"]  
+}
