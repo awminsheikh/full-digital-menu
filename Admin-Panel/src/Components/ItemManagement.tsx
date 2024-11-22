@@ -16,7 +16,11 @@ const ItemManagement: React.FC = () => {
     const [isEditing, setIsEditing] = useState<boolean>(false);  
 
     const fetchItems = async () => {  
-        const response = await axios.get<Item[]>('http://localhost:3000/api/items');  
+        const response = await axios.get<Item[]>('http://localhost:3000/api/items' ,  {
+            header: {
+                'Content-Type' : 'application/json'
+            }
+        });  
         setItems(response.data);  
     };  
 
