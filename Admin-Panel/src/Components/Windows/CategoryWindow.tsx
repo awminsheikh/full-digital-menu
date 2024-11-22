@@ -1,6 +1,6 @@
-import { GiBeastEye } from "react-icons/gi"; 
+import { GiBeastEye } from "react-icons/gi";
 import { useState, useEffect } from "react";
-import { fetchCategories } from "../../Data/categoryData";
+import { fetchCategories } from "../../Module/categoryData";
 import { Category } from "../../Types/interfaces";
 import { Link } from "react-router-dom"; // Ensure you're using 'react-router-dom'
 
@@ -33,7 +33,6 @@ const CategoryWindow = () => {
         className="w-full flex items-center justify-center rounded-lg"
       >
         <span className="w-full bg-gray-800 p-4 text-2xl rounded-lg flex items-center justify-between">
-          
           Categories
           <GiBeastEye />
         </span>

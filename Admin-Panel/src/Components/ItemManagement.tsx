@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchItems, addItem, updateItem, deleteItem } from "../Data/itemsData";
+import {
+  fetchItems,
+  addItem,
+  updateItem,
+  deleteItem,
+} from "../Module/itemsData";
 import { Item } from "../Types/interfaces";
 
 const ItemManagement: React.FC = () => {

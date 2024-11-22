@@ -1,6 +1,6 @@
 import { GiBeastEye } from "react-icons/gi";
 import { useState, useEffect } from "react";
-import { fetchItems } from "../../Data/itemsData";
+import { fetchItems } from "../../Module/itemsData";
 import { Category } from "../../Types/interfaces";
 import { Link } from "react-router-dom"; // Ensure you're using 'react-router-dom'
 
