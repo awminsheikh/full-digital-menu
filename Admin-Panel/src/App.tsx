@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Use Routes instead of Switch
+import AdminDashboard from "./Components/AdminDashboard";
+import ItemManagement from "./Components/ItemManagement";
+import CategoryManagement from "./Components/CategoryManagement";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        {" "}
+        {/* Use Routes for React Router v6 */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/items" element={<ItemManagement />} />
+        <Route path="/admin/categories" element={<CategoryManagement />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
