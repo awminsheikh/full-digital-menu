@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchItems, addItem, updateItem, deleteItem } from "../Data/itemsData";
-interface Item {
-  _id?: string; // Make _id optional since it may not be set on new items
-  name: string;
-  image: string;
-  price: number;
-  available: boolean;
-  category: string;
-}
+import { Item } from "../Types/interfaces";
 
 const ItemManagement: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);

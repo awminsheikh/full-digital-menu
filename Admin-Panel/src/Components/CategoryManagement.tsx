@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Category } from "../Types/interfaces";
 // Define Category interface
-interface Category {
-  _id?: string; // Optional since it may not exist for a new category
-  name: string;
-  image: string;
-}
 import {
   fetchCategories,
   addCategory,
