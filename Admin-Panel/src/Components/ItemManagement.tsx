@@ -25,11 +25,15 @@ const ItemManagement: React.FC = () => {
   useEffect(() => {
     loadItems();
   }, []);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
+  
+    const fetchItems = async () => {  
+        const response = await axios.get<Item[]>('http://localhost:3000/api/items' ,  {
+            header: {
+                'Content-Type' : 'application/json'
+            }
+        });  
+        setItems(response.data);  
+    };  
 
     if (name === "available") {
       setItem({ ...item, [name]: value === "true" }); // Convert to boolean

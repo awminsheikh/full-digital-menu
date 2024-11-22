@@ -141,5 +141,4 @@ const CategoryManagement: React.FC = () => {
     </div>
   );
 };
-
 export default CategoryManagement;
