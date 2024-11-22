@@ -76,14 +76,18 @@ const ItemManagement: React.FC = () => {
           placeholder="Item Name"
           required
         />
-        <input
-          type="text"
-          name="image"
-          value={item.image}
-          onChange={handleChange}
-          placeholder="Image URL"
-          required
-        />
+        {/* i dont have edditing for image 
+        becaouse i can not handle image issues yet  */}
+        {!isEditing && (
+          <input
+            type="file"
+            name="image"
+            value={item.image}
+            onChange={handleChange}
+            placeholder="Image"
+            required
+          />
+        )}
         <input
           type="number"
           name="price"
