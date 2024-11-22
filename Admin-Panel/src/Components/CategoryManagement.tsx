@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-
 // Define Category interface
 interface Category {
   _id?: string; // Optional since it may not exist for a new category
   name: string;
   image: string;
 }
+import {
+  fetchCategories,
+  addCategory,
+  updateCategory,
+  deleteCategory,
+} from "../Data/categoryData";
 
 const CategoryManagement: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]); // Use Category[] for state
   const [category, setCategory] = useState<Category>({ name: "", image: "" }); // Use Category for category state
   const [isEditing, setIsEditing] = useState<boolean>(false); // Use boolean for isEditing
 
-  // Function to fetch categories from the API
-  const fetchCategories = async () => {
-    try {
-      const response = await axios.get<Category[]>(
-        "http://localhost:3000/api/categories"
-      );
-      setCategories(response.data);
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
-
   // Effect to fetch categories on component mount
+  const loadCategories = async () => {
+    const data = await fetchCategories();
+    setCategories(data);
+  };
   useEffect(() => {
-    fetchCategories();
+    loadCategories();
   }, []);
 
   // Function to handle form input changes
@@ -41,17 +37,14 @@ const CategoryManagement: React.FC = () => {
     e.preventDefault();
     try {
       if (isEditing && category._id) {
-        await axios.put(
-          `http://localhost:3000/api/categories/${category._id}`,
-          category
-        );
+        await updateCategory(category._id, category);
       } else {
-        await axios.post("http://localhost:3000/api/categories", category);
+        await addCategory(category);
       }
       // Reset the form
       setCategory({ name: "", image: "" });
       setIsEditing(false);
-      fetchCategories(); // Refresh the categories list
+      loadCategories(); // Refresh the categories list
     } catch (error) {
       console.error("Error submitting category:", error);
     }
@@ -66,8 +59,8 @@ const CategoryManagement: React.FC = () => {
   // Function to delete a category
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/api/categories/${id}`);
-      fetchCategories(); // Refresh the categories list
+      await deleteCategory(id);
+      loadCategories();
     } catch (error) {
       console.error("Error deleting category:", error);
     }
@@ -113,6 +106,7 @@ const CategoryManagement: React.FC = () => {
                 Delete
               </button>{" "}
               {/* Non-null assertion for _id */}
+              {cat._id}
             </li>
           )
         )}
